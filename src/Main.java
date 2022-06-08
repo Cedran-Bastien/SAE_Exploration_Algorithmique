@@ -12,7 +12,7 @@ public class Main {
             System.out.println(fig1);
             System.out.println(fig1.toGraphviz());
 
-            GrapheListe dsfq = new GrapheListe("Nouveau_Document_texte.txt");
+            GrapheListe dsfq = new GrapheListe("src/Graphe1.txt");
             System.out.println(dsfq);
             System.out.println(dsfq.toGraphviz());
         }

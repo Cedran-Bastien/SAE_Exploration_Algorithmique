@@ -17,7 +17,8 @@ public class GrapheListe implements Graphe {
      * cree un graphe vide en initialisant les attributs
      */
     public GrapheListe(){
-
+        this.ensNom = new ArrayList<String>();
+        this.ensNoeuds = new ArrayList<Noeud>();
     }
 
 
@@ -27,33 +28,29 @@ public class GrapheListe implements Graphe {
         this.ensNoeuds = new ArrayList<Noeud>();
         //lecture du fichier et ajout des arcs et noeuds
         File modelegraphe = new File(nomfich);
-        BufferedReader bf = new BufferedReader(new FileReader(modelegraphe));
-        try {
-            while (true){
-                String ligne = bf.readLine();
-                int i = 0;
-                String depart = "";
-                while (i<ligne.length() && !(""+ligne.charAt(1)).equals(" ")){
-                    depart+=ligne.charAt(i);
-                    i++;
-                }
+        BufferedReader bf = new BufferedReader(new FileReader(nomfich));
+        String ligne = bf.readLine();
+        while (ligne!=null){
+            int i = 0;
+            String depart = "";
+            while (i<ligne.length() && !(ligne.charAt(i) == '\t')){
+                depart+=ligne.charAt(i);
                 i++;
-                String dest = "";
-                while (i<ligne.length() && (""+ligne.charAt(1)).equals(" ")){
-                    dest+=ligne.charAt(i);
-                    i++;
-                }
-                i++;
-                String cout = "";
-                while (i<ligne.length()){
-                    cout+=ligne.charAt(i);
-                }
-
-                this.ajouterArc(depart,dest,Integer.parseInt(cout));
             }
-        }
-        catch (IOException oef){
-            oef.printStackTrace();
+            i++;
+            String dest = "";
+            while (i<ligne.length() && !(ligne.charAt(i) == '\t')){
+                dest+=ligne.charAt(i);
+                i++;
+            }
+            i++;
+            String cout = "";
+            while (i<ligne.length()){
+                cout+=ligne.charAt(i);
+                i++;
+            }
+            this.ajouterArc(depart,dest,Integer.parseInt(cout));
+            ligne=bf.readLine();
         }
     }
 
