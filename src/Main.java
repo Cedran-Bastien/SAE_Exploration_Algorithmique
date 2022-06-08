@@ -11,6 +11,10 @@ public class Main {
             fig1.ajouterArc("E","D",43);
             System.out.println(fig1);
             System.out.println(fig1.toGraphviz());
+
+            GrapheListe dsfq = new GrapheListe("Nouveau_Document_texte.txt");
+            System.out.println(dsfq);
+            System.out.println(dsfq.toGraphviz());
         }
         catch (Exception e){
             e.printStackTrace();

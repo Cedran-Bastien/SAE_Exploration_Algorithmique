@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +17,44 @@ public class GrapheListe implements Graphe {
      * cree un graphe vide en initialisant les attributs
      */
     public GrapheListe(){
+
+    }
+
+
+    public GrapheListe(String nomfich) throws Exception {
+        //initialisation des attributs
         this.ensNom = new ArrayList<String>();
         this.ensNoeuds = new ArrayList<Noeud>();
+        //lecture du fichier et ajout des arcs et noeuds
+        File modelegraphe = new File(nomfich);
+        BufferedReader bf = new BufferedReader(new FileReader(modelegraphe));
+        try {
+            while (true){
+                String ligne = bf.readLine();
+                int i = 0;
+                String depart = "";
+                while (i<ligne.length() && !(""+ligne.charAt(1)).equals(" ")){
+                    depart+=ligne.charAt(i);
+                    i++;
+                }
+                i++;
+                String dest = "";
+                while (i<ligne.length() && (""+ligne.charAt(1)).equals(" ")){
+                    dest+=ligne.charAt(i);
+                    i++;
+                }
+                i++;
+                String cout = "";
+                while (i<ligne.length()){
+                    cout+=ligne.charAt(i);
+                }
+
+                this.ajouterArc(depart,dest,Integer.parseInt(cout));
+            }
+        }
+        catch (IOException oef){
+            oef.printStackTrace();
+        }
     }
 
     /**
@@ -83,6 +120,7 @@ public class GrapheListe implements Graphe {
         }
         return s;
     }
+
 
     public String toGraphviz(){
         String s = "digraph G {\n";
