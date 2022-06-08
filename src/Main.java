@@ -9,6 +9,7 @@ public class Main {
             fig1.ajouterArc("D","B",23);
             fig1.ajouterArc("B","E",11);
             fig1.ajouterArc("E","D",43);
+            System.out.println(fig1);
         }
         catch (Exception e){
             e.printStackTrace();

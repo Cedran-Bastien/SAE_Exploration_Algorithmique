@@ -54,4 +54,16 @@ public class GrapheListe implements Graphe {
         Noeud no = this.ensNoeuds.get(this.ensNoeuds.indexOf(new Noeud(n)));
         return no.getArcs();
     }
+
+    public String toString() {
+        String s = "";
+        for (int i = 0; i < this.ensNoeuds.size(); i++) {
+            s += this.ensNoeuds.get(i).nom + " -> ";
+            for (int j = 0; j < this.ensNoeuds.get(i).getArcs().size(); j++) {
+                s+= this.ensNoeuds.get(i).getArcs().get(j).getDest() + "(" + this.ensNoeuds.get(i).getArcs().get(j).getCout() + ") ";
+            }
+            s += "\n";
+        }
+        return s;
+    }
 }
