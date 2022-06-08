@@ -10,6 +10,7 @@ public class Main {
             fig1.ajouterArc("B","E",11);
             fig1.ajouterArc("E","D",43);
             System.out.println(fig1);
+            System.out.println(fig1.toGraphviz());
         }
         catch (Exception e){
             e.printStackTrace();

@@ -45,16 +45,33 @@ public class GrapheListe implements Graphe {
     }
 
     @Override
+    /**
+     *
+     * @return
+     *      les noeuds du graphe
+     */
     public List<String> listeNoeuds() {
         return this.ensNom;
     }
 
     @Override
+    /**
+     * rechercge les arc adjacenta un sommet
+     * @param n
+     *      nom du sommet
+     * @return
+     *      liste des arc adjacent
+     */
     public List<Arc> suivant(String n) {
         Noeud no = this.ensNoeuds.get(this.ensNoeuds.indexOf(new Noeud(n)));
         return no.getArcs();
     }
 
+    /**
+     * methode toString
+     * @return
+     *      chaine de caracteres modelisant le graphe
+     */
     public String toString() {
         String s = "";
         for (int i = 0; i < this.ensNoeuds.size(); i++) {
@@ -65,5 +82,17 @@ public class GrapheListe implements Graphe {
             s += "\n";
         }
         return s;
+    }
+
+    public String toGraphviz(){
+        String s = "digraph G {\n";
+        for (int i = 0; i < this.ensNoeuds.size(); i++) {
+            for (int j = 0; j < this.ensNoeuds.get(i).getArcs().size(); j++) {
+                Arc act = this.ensNoeuds.get(i).getArcs().get(j);
+                s+= this.ensNoeuds.get(i).nom + " -> " + act.getDest() + " [label = " + act.getCout() + "]\n";
+            }
+        }
+        s+= "}";
+        return (s);
     }
 }
