@@ -9,6 +9,15 @@ public class Arc {
      */
     private double cout;
 
+    /**
+     * cree un Arc
+     * @param dest
+     *      destination de l'arc
+     * @param cout
+     *      cout de l'arc
+     * @throws Exception
+     *      le cout est toujours positif
+     */
     public Arc(String dest, double cout) throws Exception {
         this.dest = dest;
         if (cout < 0) {
