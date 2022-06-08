@@ -4,7 +4,7 @@ public class Main {
         try {
             fig1.ajouterArc("A","B",12);
             fig1.ajouterArc("A","D",87);
-            fig1.ajouterArc("A","C",19);
+            fig1.ajouterArc("C","A",19);
             fig1.ajouterArc("D","C",10);
             fig1.ajouterArc("D","B",23);
             fig1.ajouterArc("B","E",11);
