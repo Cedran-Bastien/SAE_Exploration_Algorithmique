@@ -37,9 +37,11 @@ public class TestGraphe {
 
 
         //test des donnees
-        String s = "A -> B(2.0) C(2.0) \nB -> A(3.0) \nC -> B(3.0) \n";
+        String s = "A -> B(2.0) C(2.0) \n" +
+                "C -> B(3.0) \n" +
+                "B -> A(3.0) \n";
         assertEquals(s,g.toString(), "creation du graphe incorrecte");
-        assertEquals(4,g.listeNoeuds().size(), "nombre de noeud incorrecte");
+        assertEquals(3,g.listeNoeuds().size(), "nombre de noeud incorrecte");
 
     }
 
@@ -56,10 +58,11 @@ public class TestGraphe {
 
 
         //test des donnees
-        String s = "A -> B(2.0) C(2.0) \nC -> B(3.0) \n";
+        String s = "A -> B(2.0) C(2.0) \n" +
+                "C -> B(3.0) \n" +
+                "\n";
         assertEquals(s,g.toString(), "creation du graphe incorrecte");
         assertEquals(3,g.listeNoeuds().size(), "nombre de noeud incorrecte");
 
     }
-
 }
