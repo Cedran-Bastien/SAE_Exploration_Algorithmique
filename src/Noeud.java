@@ -41,4 +41,8 @@ public class Noeud {
     public void ajouterArc(String destination, double cout) throws Exception {
         this.adj.add(new Arc(destination,cout));
     }
+
+    public List<Arc> getArcs() {
+        return this.adj;
+    }
 }
