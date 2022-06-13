@@ -2,6 +2,7 @@ package graphe;
 
 import bellman_ford.BellmanFord;
 import bellman_ford.Valeur;
+import dijkstra.Dijkstra;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,12 +23,11 @@ public class Main {
 //            System.out.println(dsfq.toGraphviz());
             BellmanFord bf = new BellmanFord();
             System.out.println(bf.resoudre(fig1,"A"));
+            Dijkstra di = new Dijkstra();
+            System.out.println(di.resoudre(fig1,"A"));
         }
-        catch (Exception e){
+        catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
     }
 }

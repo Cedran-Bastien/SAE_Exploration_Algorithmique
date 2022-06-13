@@ -87,7 +87,6 @@ public class GrapheListe implements Graphe {
         return this.ensNom;
     }
 
-    public List<Noeud> listeObjetsNoeuds() { return this.ensNoeuds; }
 
     @Override
     /**

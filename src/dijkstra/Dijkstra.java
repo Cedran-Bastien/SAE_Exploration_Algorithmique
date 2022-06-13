@@ -2,6 +2,10 @@ package dijkstra;
 
 import bellman_ford.Valeur;
 import graphe.Graphe;
+import graphe.Noeud;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Dijkstra {
 //   Fonction resoudre (Graphe G, Noeud A)
@@ -26,11 +30,35 @@ public class Dijkstra {
 //    Fin Tant que
 //    Fin
 
-    public void resoudre (Graphe g, String depart) {
-        Valeur v = new Valeur();
+    public Valeur resoudre (Graphe g, String depart) {
+        List<String> listeN = new ArrayList<String>();
+        Valeur res = new Valeur();
+
+
         for (int i = 0; i < g.listeNoeuds().size(); i++) {
-            v.
+            res.setValeur(g.listeNoeuds().get(i),Double.MAX_VALUE);
+            res.setParent(g.listeNoeuds().get(i),null);
+            listeN.add(g.listeNoeuds().get(i));
         }
+        res.setValeur(depart,0);
+        res.setParent(depart,null);
+        while (!listeN.isEmpty()) {
+            String min = listeN.get(0);
+            for (int i = 0; i < listeN.size(); i++) {
+                if (res.getValeur(min) > res.getValeur(listeN.get(i))) {
+                    min = listeN.get(i);
+                }
+            }
+            listeN.remove(min);
+            for (int i = 0; i < g.suivant(min).size(); i++) {
+                double D = res.getValeur(min) + g.suivant(min).get(i).getCout();
+                if ( D < res.getValeur(g.suivant(min).get(i).getDest())) {
+                        res.setValeur(g.suivant(min).get(i).getDest(),D);
+                        res.setParent(g.suivant(min).get(i).getDest(),min);
+                }
+            }
+        }
+        return res;
     }
 
 }
