@@ -1,3 +1,5 @@
+package graphe;
+
 public class Arc {
     /**
      * nom du noeuds destination de l'arc

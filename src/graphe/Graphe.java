@@ -1,3 +1,5 @@
+package graphe;
+
 import java.util.List;
 
 public interface Graphe {
