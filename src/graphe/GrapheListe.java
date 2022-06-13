@@ -1,3 +1,5 @@
+package graphe;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -87,7 +89,7 @@ public class GrapheListe implements Graphe {
 
     @Override
     /**
-     * rechercge les arc adjacenta un sommet
+     * recherche les arc adjacent a un sommet
      * @param n
      *      nom du sommet
      * @return
@@ -96,6 +98,21 @@ public class GrapheListe implements Graphe {
     public List<Arc> suivant(String n) {
         Noeud no = this.ensNoeuds.get(this.ensNoeuds.indexOf(new Noeud(n)));
         return no.getArcs();
+    }
+
+    /**
+     *
+     * @return
+     * la liste de tout les arcs du graphe
+     */
+    public List<Arc> arcGraphe() {
+        List<Arc> res = new ArrayList<Arc>();
+        for (int i = 0; i < this.listeNoeuds().size(); i++) {
+            for (int j = 0; j < this.suivant(this.listeNoeuds().get(i)).size(); j++) {
+                res.add(this.suivant(this.listeNoeuds().get(i)).get(j));
+            }
+        }
+        return res;
     }
 
     /**
@@ -118,7 +135,9 @@ public class GrapheListe implements Graphe {
     }
 
 
+
     public String toGraphviz() {
+
         String s = "digraph G {\n";
         for (int i = 0; i < this.ensNoeuds.size(); i++) {
             for (int j = 0; j < this.ensNoeuds.get(i).getArcs().size(); j++) {
