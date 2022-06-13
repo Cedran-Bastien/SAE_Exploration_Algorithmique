@@ -30,16 +30,17 @@ public class Noeud {
      * methode permetant de montrer si 2 noeud sont egaux
      */
     public boolean equals(Object o) {
-        return this.nom.equals(((Noeud)o).nom);
+        return this.nom.equals(((Noeud) o).nom);
     }
 
     /**
      * ajout d'un arc au noeud
+     *
      * @param destination le nom du noeud de destination
-     * @param cout cout pour passer au noead destination
+     * @param cout        cout pour passer au noead destination
      */
     public void ajouterArc(String destination, double cout) throws Exception {
-        this.adj.add(new Arc(destination,cout));
+        this.adj.add(new Arc(destination, cout));
     }
 
     public List<Arc> getArcs() {
