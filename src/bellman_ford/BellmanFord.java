@@ -1,9 +1,6 @@
 package bellman_ford;
 
-import graphe.Arc;
-import graphe.Graphe;
-import graphe.GrapheListe;
-import graphe.Noeud;
+import graphe.*;
 
 import java.util.List;
 
