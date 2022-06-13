@@ -30,23 +30,23 @@ public class BellmanFord {
 
 
 
-    public Valeur resoudre(Graphe g, Noeud depart){
+    public Valeur resoudre(Graphe g, String depart){
         Valeur res = new Valeur();
         //initialisation
         for (int i = 0; i < g.listeNoeuds().size(); i++) {
             res.setValeur(g.listeNoeuds().get(i),Double.MAX_VALUE);
             res.setParent(g.listeNoeuds().get(i),null);
         }
-        res.setValeur(depart.nom,0);
-        res.setParent(depart.nom,null);
+        res.setValeur(depart,0);
+        res.setParent(depart,null);
         //recherche parent
         boolean continuer = true;
         while (continuer){
             continuer = false;
             for (int i = 0; i < g.listeNoeuds().size(); i++) {
                 for (int j = 0; j < g.suivant(g.listeNoeuds().get(i)).size(); j++) {
-                    if (res.getValeur(g.suivant(g.listeNoeuds().get(i)).get(j).getDest())>g.suivant(g.listeNoeuds().get(i)).get(j).getCout()){
-                        res.setValeur(g.suivant(g.listeNoeuds().get(i)).get(j).getDest(),g.suivant(g.listeNoeuds().get(i)).get(j).getCout());
+                    if (res.getValeur(g.suivant(g.listeNoeuds().get(i)).get(j).getDest())> res.getValeur(g.listeNoeuds().get(i)) + g.suivant(g.listeNoeuds().get(i)).get(j).getCout()){
+                        res.setValeur(g.suivant(g.listeNoeuds().get(i)).get(j).getDest(),res.getValeur(g.listeNoeuds().get(i)) + g.suivant(g.listeNoeuds().get(i)).get(j).getCout());
                         res.setParent(g.suivant(g.listeNoeuds().get(i)).get(j).getDest(),g.listeNoeuds().get(i));
                         continuer = true;
                     }
