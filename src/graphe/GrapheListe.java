@@ -126,9 +126,11 @@ public class GrapheListe implements Graphe {
     public String toString() {
         String s = "";
         for (int i = 0; i < this.ensNoeuds.size(); i++) {
+            if (!this.ensNoeuds.get(i).getArcs().isEmpty()) {
             s += this.ensNoeuds.get(i).nom + " -> ";
-            for (int j = 0; j < this.ensNoeuds.get(i).getArcs().size(); j++) {
-                s+= this.ensNoeuds.get(i).getArcs().get(j).getDest() + "(" + this.ensNoeuds.get(i).getArcs().get(j).getCout() + ") ";
+                for (int j = 0; j < this.ensNoeuds.get(i).getArcs().size(); j++) {
+                    s += this.ensNoeuds.get(i).getArcs().get(j).getDest() + "(" + this.ensNoeuds.get(i).getArcs().get(j).getCout() + ") ";
+                }
             }
             s += "\n";
         }
