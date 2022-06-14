@@ -1,3 +1,5 @@
+package bellman_ford;
+
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
@@ -86,6 +88,17 @@ public class Valeur {
         }
         return res;
 
+    }
+
+    public List<String> calculerChemin(String destination){
+        List<String> res = new ArrayList<String>();
+        res.add(destination);
+        String parent = destination;
+        while (this.getParent(parent)!=null){
+            res.add(0,this.getParent(parent));
+            parent = this.getParent(parent);
+        }
+        return res;
     }
 
 }
