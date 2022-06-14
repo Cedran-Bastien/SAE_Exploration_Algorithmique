@@ -64,7 +64,7 @@ public class GrapheListe implements Graphe {
      * @param cout        cout de l'arc
      * @throws Exception
      */
-    void ajouterArc(String depart, String destination, double cout) throws Exception {
+    public void ajouterArc(String depart, String destination, double cout) throws Exception {
         if (!this.ensNom.contains(depart)) {
             Noeud nedepart = new Noeud(depart);
             this.ensNoeuds.add(nedepart);
