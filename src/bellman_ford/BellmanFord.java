@@ -2,8 +2,6 @@ package bellman_ford;
 
 import graphe.*;
 
-import java.util.List;
-
 public class BellmanFord {
 //    fonction Bellman-Ford(G , d)
 //    //init.
