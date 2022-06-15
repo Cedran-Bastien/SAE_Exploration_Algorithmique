@@ -24,7 +24,16 @@ public class BellmanFord {
 //    retourner L
 
 
-
+    /**
+     * permet de resoudre un graphe
+     * @param g
+     *      graphe a resoudre
+     * @param depart
+     *      sommet de depart
+     * @return
+     *      objet Valeurs (resultat)
+     * @throws Exception
+     */
     public Valeur resoudre(Graphe g, String depart) throws Exception {
         Valeur res = new Valeur();
         //initialisation

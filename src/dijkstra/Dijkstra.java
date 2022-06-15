@@ -30,6 +30,16 @@ public class Dijkstra {
 //    Fin Tant que
 //    Fin
 
+    /**
+     * opermet de resoudre un graphe
+     * @param g
+     *      graphe a resoudre
+     * @param depart
+     *      noeud de depart
+     * @return
+     *      objet valeur (resultat de la resolution)
+     * @throws Exception
+     */
     public Valeur resoudre (Graphe g, String depart) throws Exception {
         List<String> listeN = new ArrayList<String>();
         Valeur res = new Valeur();
