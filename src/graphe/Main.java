@@ -37,6 +37,8 @@ public class Main {
 
             //question 26
             int i = 10;
+            double moyenne=0;
+            int nbiteration=0;
             while (i<=1000){
                 try {
                     //creation du graphe
@@ -56,12 +58,17 @@ public class Main {
 
                     System.out.println("temps resolution Dijkstra : "+temps_resolution1+ " ms");
                     System.out.println("ratio = "+ temps_resolution/temps_resolution1);
+                    moyenne=moyenne+(temps_resolution/temps_resolution1);
+                    nbiteration++;
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                i*=2;
+                i*=1.2;
+
             }
 
+            moyenne=moyenne/nbiteration;
+            System.out.println("moyenne = "+ moyenne);
 
         }
         catch (Exception e) {
@@ -69,6 +76,14 @@ public class Main {
         }
     }
 
+    /**
+     * genere un graphe aleatoirement contenant un certain nombre de noeuds
+     * @param nbNoeuds
+     *      le nombre de noeuds
+     * @return
+     *      le graphe generer
+     * @throws Exception
+     */
     public static GrapheListe genererGraphe(int nbNoeuds) throws Exception {
         GrapheListe graph= new GrapheListe();
         //les nombre voulue de noeuds
