@@ -30,7 +30,7 @@ public class Dijkstra {
 //    Fin Tant que
 //    Fin
 
-    public Valeur resoudre (Graphe g, String depart) {
+    public Valeur resoudre (Graphe g, String depart) throws Exception {
         List<String> listeN = new ArrayList<String>();
         Valeur res = new Valeur();
 

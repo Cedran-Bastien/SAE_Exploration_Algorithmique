@@ -25,7 +25,7 @@ public class BellmanFord {
 
 
 
-    public Valeur resoudre(Graphe g, String depart){
+    public Valeur resoudre(Graphe g, String depart) throws Exception {
         Valeur res = new Valeur();
         //initialisation
         for (int i = 0; i < g.listeNoeuds().size(); i++) {

@@ -14,5 +14,5 @@ public interface Graphe {
      * @param n nom du sommet
      * @return liste des arc adjacent
      */
-    public List<Arc> suivant(String n);
+    public List<Arc> suivant(String n) throws Exception;
 }
