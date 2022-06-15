@@ -24,6 +24,12 @@ public class GrapheListe implements Graphe {
     }
 
 
+    /**
+     * genere un graphe a partir d'un fichier texte correctement construit
+     * @param nomfich
+     *      chemin vers le fichier
+     * @throws Exception
+     */
     public GrapheListe(String nomfich) throws Exception {
         //initialisation des attributs
         this.ensNom = new ArrayList<String>();
@@ -55,6 +61,7 @@ public class GrapheListe implements Graphe {
             ligne = bf.readLine();
         }
     }
+
 
     /**
      * Ajoute un arc au graphe en creant les noeuds si besoin
