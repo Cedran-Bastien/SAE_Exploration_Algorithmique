@@ -8,6 +8,7 @@ import graphe.Noeud;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,6 +24,8 @@ public class Labyrinthe {
     public static final char MUR = 'X';
     public static final char PJ = 'P';
     public static final char VIDE = '.';
+    public static final char PORTE = '|';
+    public static final char CLEF = 'C';
 
     /**
      * constantes actions possibles
@@ -37,6 +40,16 @@ public class Labyrinthe {
      * les murs du labyrinthe
      */
     public boolean[][] murs;
+
+    /**
+     * porte du labyrinthe
+     */
+    public Position porte;
+
+    /**
+     * clef du labyrinthe
+     */
+    public Position clef;
 
     /**
      * retourne la case suivante selon une actions
@@ -105,6 +118,14 @@ public class Labyrinthe {
             for (int colonne = 0; colonne < ligne.length(); colonne++) {
                 char c = ligne.charAt(colonne);
                 switch (c) {
+                    case PORTE:
+                        this.murs[colonne][numeroLigne] = false;
+                        this.porte = new Position(colonne,numeroLigne);
+                        break;
+                    case CLEF:
+                        this.murs[colonne][numeroLigne] = false;
+                        this.clef = new Position(colonne,numeroLigne);
+                        break;
                     case MUR:
                         this.murs[colonne][numeroLigne] = true;
                         break;
@@ -214,5 +235,13 @@ public class Labyrinthe {
             }
         }
         return g;
+    }
+
+    public String getClef() {
+        return "(" + this.clef.getX() + "," + this.clef.getY() + ")";
+    }
+
+    public String getPorte() {
+        return "(" + this.porte.getX() + "," + this.porte.getY() + ")";
     }
 }

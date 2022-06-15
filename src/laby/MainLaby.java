@@ -32,5 +32,6 @@ public class MainLaby {
         System.out.println((b.resoudre(g3,"(1,1)")).calculerChemin("(17,8)"));
         System.out.println((d.resoudre(g3,"(1,1)")).calculerChemin("(17,8)"));
 
+
     }
 }
